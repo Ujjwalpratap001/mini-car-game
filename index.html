@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d18">
+  <title>Velocity X | 3D Racing</title>
+  <link rel="stylesheet" href="./style.css">
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="game">
+    <div id="loading">
+      <div class="loading-logo">VELOCITY<span>X</span></div>
+      <div class="loading-bar"><div></div></div>
+      <p>INITIALIZING RACE SYSTEM</p>
+    </div>
+
+    <div id="hud" class="hidden">
+      <header class="topbar">
+        <a class="brand" href="./">V<span>X</span></a>
+        <div class="race-label">
+          <span class="live-dot"></span>
+          <span>LIVE RACE</span>
+        </div>
+        <button id="pauseBtn" class="icon-btn" aria-label="Pause game">Ⅱ</button>
+      </header>
+
+      <section class="race-info">
+        <div class="position-panel">
+          <div class="eyebrow">POSITION</div>
+          <div class="position-number"><span id="position">01</span><small>/ 03</small></div>
+        </div>
+        <div class="lap-panel">
+          <div class="eyebrow">LAP</div>
+          <div class="lap-number"><span id="lap">01</span><small> / 03</small></div>
+        </div>
+        <div class="timer-panel">
+          <div class="eyebrow">RACE TIME</div>
+          <div id="timer">00:00.0</div>
+        </div>
+      </section>
+
+      <div id="countdown" class="countdown hidden">3</div>
+
+      <div class="track-label">
+        <span class="track-icon">◈</span>
+        <div>
+          <strong>APEX CIRCUIT</strong>
+          <small>GRAND PRIX SERIES</small>
+        </div>
+      </div>
+
+      <div class="speed-panel">
+        <div class="speed-top">
+          <span class="eyebrow">VELOCITY</span>
+          <span class="gear" id="gear">D</span>
+        </div>
+        <div class="speed-value"><span id="speed">000</span><small>KM/H</small></div>
+        <div class="speed-track"><div id="speedFill"></div></div>
+        <div class="speed-bottom"><span>0</span><span>MAX 240</span></div>
+      </div>
+
+      <div class="controls-hint">
+        <span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> DRIVE</span>
+        <span><kbd>SPACE</kbd> BRAKE</span>
+      </div>
+
+      <div id="startScreen" class="overlay">
+        <div class="start-card">
+          <div class="eyebrow">THE NEXT GENERATION OF RACING</div>
+          <h1>OWN THE<br><span>APEX.</span></h1>
+          <p>Three machines. One circuit. No room for second place.</p>
+          <div class="car-legend">
+            <span><i class="dot blue"></i> YOU · GT-R</span>
+            <span><i class="dot red"></i> RIVAL 01</span>
+            <span><i class="dot yellow"></i> RIVAL 02</span>
+          </div>
+          <button id="startBtn" class="primary-btn">START ENGINE <span>↗</span></button>
+          <div class="start-note">WASD TO DRIVE · SPACE TO BRAKE</div>
+        </div>
+      </div>
+
+      <div id="pauseScreen" class="overlay hidden">
+        <div class="start-card small-card">
+          <div class="eyebrow">RACE CONTROL</div>
+          <h2>RACE <span>PAUSED.</span></h2>
+          <p>Catch your breath. The circuit isn't going anywhere.</p>
+          <button id="resumeBtn" class="primary-btn">RESUME RACE <span>↗</span></button>
+          <button id="restartBtn" class="secondary-btn">RESTART RACE</button>
+        </div>
+      </div>
+
+      <div id="finishScreen" class="overlay hidden">
+        <div class="start-card small-card">
+          <div class="eyebrow">CHECKERED FLAG</div>
+          <h2 id="finishTitle">RACE <span>COMPLETE.</span></h2>
+          <p id="finishMessage">Your race is over.</p>
+          <div class="finish-stat">
+            <span>FINAL TIME</span>
+            <strong id="finishTime">00:00.0</strong>
+          </div>
+          <button id="playAgainBtn" class="primary-btn">RACE AGAIN <span>↗</span></button>
+        </div>
+      </div>
+
+      <div id="mobileControls">
+        <div class="steering-controls">
+          <button id="leftBtn" aria-label="Steer left">←</button>
+          <button id="rightBtn" aria-label="Steer right">→</button>
+        </div>
+        <div class="pedal-controls">
+          <button id="brakeBtn">BRAKE</button>
+          <button id="accelerateBtn">GAS ↑</button>
+        </div>
+      </div>
+
+      <div class="bottom-brand">VELOCITY X <span>•</span> BUILT FOR THE BOLD</div>
+    </div>
+  </div>
+
+  <script type="module" src="./script.js"></script>
+</body>
+</html>
